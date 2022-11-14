@@ -39,6 +39,7 @@ class Ui_Form_producto(object):
 "}")
         self.gridLayout = QGridLayout(Form_producto)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.frame = QFrame(Form_producto)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
