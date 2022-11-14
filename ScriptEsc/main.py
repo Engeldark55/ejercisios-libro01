@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QApplication
 from controllers.Admin import AdminMain
+from controllers.Log import Login_main
 
 import sys
 
