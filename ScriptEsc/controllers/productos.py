@@ -1,6 +1,8 @@
 from PySide6.QtWidgets import QWidget
 from views.ui_producto import Ui_Form_producto as ui_Producto
 
+from  db.metodos import insert_prod as add_pro_new
+
 class Producto_main(QWidget, ui_Producto):
     def __init__(self):
         super().__init__()
@@ -12,18 +14,24 @@ class Producto_main(QWidget, ui_Producto):
         #btn cancel
         self.btn_cancelar.clicked.connect(lambda: self.limpiar_cancel())
         
+        #opc del combobox
+        self.comboBox_tipo.addItems(["antiviotico", "analgecico", "patente" , "cimilar"])
+       
     def add_pro(self):
         
-        clave = self.line_calve.text()
-        nombre = self.line_nombre.text()
-        cantidad_pro = self.line_cantidad_pro.text()
-        pre_compra = self.line_precio_com.text()
-        pre_venta = self.line_precio_venta.text()
-        description = self.line_desc.text()
-        
-        data_pro = [clave,nombre,cantidad_pro,pre_compra,pre_venta,description]
- 
-        print(data_pro)
+        clave: str = self.line_calve.text()
+        nombre: str = self.line_nombre.text()
+        cantidad_pro: float = self.line_cantidad_pro.text()
+        tipo = 0
+        pre_compra: float = self.line_precio_com.text()
+        pre_venta: float = self.line_precio_venta.text()
+        description: str = self.line_desc.text()
+        fecha: str ="25/25/99"
+        data_pro = [clave,nombre,cantidad_pro,tipo,pre_compra,pre_venta,description, fecha]
+
+        add_pro_new(data_pro)
+
+        print(data_pro) 
         
     def create_codo(self):
         
@@ -34,6 +42,9 @@ class Producto_main(QWidget, ui_Producto):
         
         print(data_cod)
         
+    
+  
+
     def limpiar_cancel(self):
         clave = self.line_calve.clear()
         nombre = self.line_nombre.clear()

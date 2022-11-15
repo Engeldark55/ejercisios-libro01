@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:Proyecto-AppWebPV}/ScriptEsc/db/db_main.db",
+            "name": "nueva"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "db_main",
+            "database": "${workspaceFolder:Proyecto-AppWebPV}/ScriptEsc/db/db_main.db"
+        }
+    ]
+}
