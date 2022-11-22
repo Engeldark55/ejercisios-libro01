@@ -4,8 +4,9 @@ from plotly import offline
 
 #visualizar tiradas de dado
 resultados = []
-for n_tiradas in range(100):
-    dado = Die()
+n_range: int = 10000
+for n_tiradas in range(n_range):
+    dado: object = Die()
     tiradas = dado.roll()
     resultados.append(tiradas)
     
@@ -26,5 +27,5 @@ data = [Bar(x = x_values, y = frequencias)]
 x_axis_config = {'title':'Resultados'}
 y_axis_config = {'title':'frecuencias del resultado'}
 
-my_layout = Layout(title='Resultados de un dado de 6 caras, lanzamientos de 100 veses', xaxis=x_axis_config, yaxis=y_axis_config)
+my_layout = Layout(title=f'Resultados de un dado de 6 caras, lanzamientos de {n_range} veses', xaxis=x_axis_config, yaxis=y_axis_config)
 offline.plot({'data':data, 'layout':my_layout}, filename='d6.html')
